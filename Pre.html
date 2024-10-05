@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>TNG - Exploit On Top.</title>
+    <style>
+        .main-container {
+            display: flex; /* Sử dụng flexbox để sắp xếp các panel ngang */
+            justify-content: center; /* Căn giữa các panel */
+            gap: 20px; /* Khoảng cách giữa các panel */
+            margin: 20px; /* Khoảng cách xung quanh container */
+            flex-wrap: wrap; /* Cho phép các panel xuống dòng khi không đủ chỗ */
+        }
+
+        .panel-item {
+            flex: 1; /* Mỗi panel chiếm không gian ngang bằng nhau */
+            min-width: 200px; /* Kích thước tối thiểu của panel */
+            max-width: 300px; /* Kích thước tối đa của panel */
+            background-color: #d3d3d3; /* Màu nền xám */
+            padding: 20px; /* Khoảng cách bên trong */
+            border-radius: 8px; /* Bo tròn các góc */
+            text-align: center; /* Căn giữa văn bản */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bóng đổ */
+        }
+
+        .panel-item img {
+            max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng của panel */
+            height: auto; /* Giữ tỷ lệ khung hình cho ảnh */
+            border-radius: 8px; /* Bo tròn các góc ảnh */
+        }
+
+        .button-container {
+            text-align: center; /* Căn giữa nút */
+            margin: 20px 0; /* Khoảng cách trên và dưới cho nút */
+            width: 100%; /* Đảm bảo nút chiếm toàn bộ chiều ngang */
+        }
+
+        .description {
+            text-align: center; /* Căn giữa mô tả */
+            font-size: 0.9em; /* Kích thước chữ nhỏ hơn */
+            color: #666; /* Màu chữ xám */
+            margin-top: 10px; /* Khoảng cách từ mô tả đến nút */
+        }
+
+        .main-button {
+            display: inline-block; /* Hiển thị như một nút */
+            padding: 10px 20px; /* Padding cho nút */
+            background-color: red; /* Màu nền nút đỏ */
+            color: white; /* Màu chữ trắng */
+            border: none; /* Không viền */
+            border-radius: 5px; /* Bo tròn các góc nút */
+            cursor: pointer; /* Con trỏ chuột khi di chuột qua */
+            font-size: 16px; /* Kích thước chữ */
+            transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền */
+            margin-top: 10px; /* Khoảng cách trên nút */
+        }
+
+        .main-button:hover {
+            background-color: darkred; /* Màu nền khi hover */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                <span>TNG Exploit</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="GetKey.html">Get Key</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="Pre.html">Premium</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="#">Admin</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="#">Contact</a></div>
+            </div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        <div class="dropdown">
+            <div class="links">
+                <a href="">Home</a>
+                <a href="">About</a>
+                <a href="">Skills</a>
+                <a href="">Service</a>
+                <a href="">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="main-container">
+            <div class="panel-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                <img src="https://i.imgur.com/U15wnsn.png" alt="Panel Image 1"> <!-- Ảnh phía trên -->
+                <h3>Premium Weekly</h3>
+                <p>Price Weekly: 10.000 Bank<br>
+                   or 20.000 Card
+                </p>
+            </div>
+            <div class="panel-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                <img src="https://i.imgur.com/U15wnsn.png" alt="Panel Image 2"> <!-- Ảnh phía trên -->
+                <h3>Premium Monthly</h3>
+                <p>Price Monthly: 35.000 Bank<br>
+                    or 40.000 Card
+                 </p>
+            </div>
+        </div>
+        <div class="button-container" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="1800">
+            <div class="description">
+                Download the App in the Button Below and Run the APP to Get the HWID Then Send the HWID to the Discord Admin With the Package You Purchased.
+            </div>
+            <a href="https://github.com/tngaming123/API/raw/refs/heads/main/TNGHwid.exe" download>
+                <button class="main-button">
+                    <i class="fa-solid fa-download"></i> Get HWID
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({offset:0,});
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
