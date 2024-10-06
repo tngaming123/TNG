@@ -35,7 +35,7 @@
 
         .button-container {
             text-align: center; /* Căn giữa nút */
-            margin: 20px 0; /* Khoảng cách trên và dưới cho nút */
+            margin: 10px 0; /* Giảm khoảng cách trên và dưới cho nút */
             width: 100%; /* Đảm bảo nút chiếm toàn bộ chiều ngang */
         }
 
@@ -62,6 +62,24 @@
         .main-button:hover {
             background-color: darkred; /* Màu nền khi hover */
         }
+
+        section {
+            display: flex;
+            flex-direction: column; /* Sắp xếp các phần tử theo cột */
+            align-items: center; /* Căn giữa tất cả các phần tử */
+            gap: 10px; /* Khoảng cách giữa các phần tử */
+        }
+
+        .panel-container {
+    display: flex; /* Sử dụng flexbox để sắp xếp các panel ngang */
+    justify-content: center; /* Căn giữa các panel */
+    gap: 20px; /* Khoảng cách giữa các panel */
+    margin-bottom: 20px; /* Khoảng cách dưới cho panel */
+    max-width: 600px; /* Kích thước tối đa của panel lớn */
+    width: 100%; /* Chiếm toàn bộ chiều ngang */
+    margin-top: 50px; /* Thêm khoảng cách trên cho panel */
+}
+
     </style>
 </head>
 <body>
@@ -92,22 +110,19 @@
     </nav>
 
     <section>
-        <div class="main-container">
+        <div class="panel-container">
             <div class="panel-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-                <img src="https://i.imgur.com/U15wnsn.png" alt="Panel Image 1"> <!-- Ảnh phía trên -->
+                <img src="https://i.imgur.com/U15wnsn.png" alt="Panel Image 1">
                 <h3>Premium Weekly</h3>
-                <p>Price Weekly: 10.000 Bank<br>
-                   or 20.000 Card
-                </p>
+                <p>Price Weekly: 10.000 Bank<br>or 20.000 Card</p>
             </div>
             <div class="panel-item" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
-                <img src="https://i.imgur.com/U15wnsn.png" alt="Panel Image 2"> <!-- Ảnh phía trên -->
+                <img src="https://i.imgur.com/U15wnsn.png" alt="Panel Image 2">
                 <h3>Premium Monthly</h3>
-                <p>Price Monthly: 35.000 Bank<br>
-                    or 40.000 Card
-                 </p>
+                <p>Price Monthly: 35.000 Bank<br>or 40.000 Card</p>
             </div>
         </div>
+        
         <div class="button-container" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="1800">
             <div class="description">
                 Download the App in the Button Below and Run the APP to Get the HWID Then Send the HWID to the Discord Admin With the Package You Purchased.
