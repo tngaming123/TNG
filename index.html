@@ -41,22 +41,22 @@
                 <div data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900" class="typewriter">Feature <span class="typewriter-text"></span><label for="">|</label></div>
                 <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">Experience TNG, the best screenwriting engine on the pc, and harness the unparalleled power it offers. With advanced scripting capabilities and outstanding performance, TNG invites you to fully immerse yourself in game hacking.</p>
                 <div class="social-links">
-                    <a href="https://discord.gg/3dg5dk6u5m" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500">
+                    <a href="https://discord.gg/3dg5dk6u5m" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500">
                         <i class="fa-brands fa-discord"></i>
                     </a>
-                    <a href="https://www.youtube.com/@tngaminghack" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600">
+                    <a href="https://www.youtube.com/@tngaminghack" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600">
                         <i class="fa-brands fa-youtube"></i>
                     </a>
                 </div>
                 <div class="btn" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="1800">
-                    <a href="https://yeumoney.com/SjQk8OW" download>
+                    <a href="https://yeumoney.com/SjQk8OW" target="_blank" download>
                         <button>
                             <i class="fa-solid fa-download"></i> Download TNG
                         </button>
                     </a>
                 </div>        
                 <div class="btn" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="1800">
-                    <a href="https://link4m.com/vq2DzD" download>
+                    <a href="https://link4m.com/vq2DzD" target="_blank" download>
                         <button>
                             <i class="fa-solid fa-download"></i> Download TNG (Additional Link)
                         </button>
@@ -68,9 +68,66 @@
             </div>
         </div>
     </section>
+    <audio id="background-audio" loop>
+        <source id="audio-source" src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({offset:0,});
+
+      // Danh sách các file MP3
+      const audioFiles = [
+        'tng.mp3',
+        'tng1.mp3',
+        'tng2.mp3',
+        'tng3.mp3',
+        'tng4.mp3',
+        'tng5.mp3',
+        'tng6.mp3',
+        'tng7.mp3',
+        'tng8.mp3',
+        'tng9.mp3'
+      ];
+
+      let currentAudioIndex = 0;
+
+      // Chọn file ngẫu nhiên khi tải trang
+      function getRandomAudio() {
+        return audioFiles[Math.floor(Math.random() * audioFiles.length)];
+      }
+
+      function playAudio() {
+        const audio = document.getElementById('background-audio');
+        const audioSource = document.getElementById('audio-source');
+        
+        // Gán file ngẫu nhiên từ đầu
+        audioSource.src = getRandomAudio();
+        audio.load();
+        audio.play();
+
+        // Khi kết thúc bài nhạc, phát bài tiếp theo trong danh sách
+        audio.onended = function() {
+          currentAudioIndex = (currentAudioIndex + 1) % audioFiles.length;
+          audioSource.src = audioFiles[currentAudioIndex];
+          audio.load();
+          audio.play();
+        };
+
+        // Xóa sự kiện sau khi phát nhạc
+        document.removeEventListener('click', playAudioOnInteraction);
+        document.removeEventListener('scroll', playAudioOnInteraction);
+      }
+
+      // Bắt sự kiện người dùng click hoặc cuộn trang
+      function playAudioOnInteraction() {
+        playAudio();
+      }
+
+      // Lắng nghe sự kiện tương tác của người dùng
+      document.addEventListener('click', playAudioOnInteraction);
+      document.addEventListener('scroll', playAudioOnInteraction);
     </script>
     <script src="script.js"></script>
 </body>
