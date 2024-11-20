@@ -11,7 +11,7 @@ function cancel(){
 
 const texts = [
     "Bypass Byfron",
-    "89% UNC",
+    "90% - 92% UNC",
     "Exploit Top 1"
 ]
 
