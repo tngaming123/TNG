@@ -201,6 +201,23 @@ section {
 .main-container .image:hover {
     animation: animate 1.5s ease-in-out infinite;
 }
+/* Cập nhật class .btn-container để các nút có khoảng cách gần nhau hơn */
+.btn-container {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các nút xuống dòng nếu không đủ chỗ */
+    justify-content: center; /* Canh giữa các nút */
+    gap: 10px; /* Khoảng cách giữa các nút, thay đổi từ 20px xuống 10px */
+}
+
+.btn-container .btn {
+    width: calc(50% - 5px); /* Mỗi nút chiếm 50% chiều rộng của container, trừ đi khoảng cách giữa các nút */
+    margin-bottom: 10px; /* Khoảng cách giữa các dòng, thay đổi từ 20px xuống 10px */
+    text-align: center; /* Canh giữa nội dung của nút */
+}
+
+.btn-container .btn a button {
+    padding: 10px 20px; /* Thêm padding cho nút */
+}
 
 @keyframes animate {
     0% {
