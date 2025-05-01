@@ -1,39 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Trang chính</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 50px;
-    }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const referrer = document.referrer;
-      const allowedReferrers = ["yeumoney.com","link4m.com", "loot-link.com"];
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang kiểm tra và Trang chính</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .main-content {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const referrer = document.referrer;
+            const allowedReferrers = ["linkvertise.com", "lootlab.io"];
+            const isAllowed = allowedReferrers.some(domain => referrer.includes(domain));
 
-      const isAllowed = allowedReferrers.some(domain => referrer.includes(domain));
-
-      if (!isAllowed) {
-        // Chặn truy cập nếu không phải từ linkvertise/lootlab
-        document.body.innerHTML = `
-          <h1>❌ Truy cập không hợp lệ</h1>
-          <p>Bạn phải truy cập thông qua Linkvertise hoặc LootLab để vào trang này.</p>
-        `;
-      } else {
-        // Cho phép truy cập
-        document.body.innerHTML = `
-          <h1>✅ Truy cập hợp lệ</h1>
-          <p>Chào mừng bạn đã vượt qua liên kết!</p>
-        `;
-      }
-    });
-  </script>
+            if (!isAllowed) {
+                // Nếu không phải từ Linkvertise hoặc LootLab, hiển thị thông báo lỗi
+                document.body.innerHTML = `
+                    <h1>❌ Truy cập không hợp lệ</h1>
+                    <p>Bạn phải truy cập thông qua Linkvertise hoặc LootLab để vào trang này.</p>
+                `;
+            } else {
+                // Nếu truy cập hợp lệ, hiển thị nội dung trang chính
+                document.body.innerHTML = `
+                    <h1>✅ Truy cập hợp lệ</h1>
+                    <p>Chào mừng bạn đã vượt qua liên kết! Đây là trang chính của bạn:</p>
+                    <div class="main-content">
+                        <h2>🌟 Chào mừng đến với Trang Chính!</h2>
+                        <p>Đây là một ví dụ về trang chính sau khi kiểm tra nguồn truy cập hợp lệ. Bạn có thể thêm nhiều nội dung ở đây, chẳng hạn như:</p>
+                        <ul>
+                            <li>Thông tin sản phẩm</li>
+                            <li>Chương trình khuyến mãi</li>
+                            <li>Hướng dẫn sử dụng</li>
+                        </ul>
+                        <p>Chúc bạn có trải nghiệm tuyệt vời!</p>
+                    </div>
+                `;
+            }
+        });
+    </script>
 </head>
 <body>
-  <p>Đang kiểm tra nguồn truy cập...</p>
+    <p>Đang kiểm tra nguồn truy cập...</p>
 </body>
 </html>
