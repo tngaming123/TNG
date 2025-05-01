@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Trang chính</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const referrer = document.referrer;
+      const allowedReferrers = ["linkvertise.com", "loot-link.com"];
+
+      const isAllowed = allowedReferrers.some(domain => referrer.includes(domain));
+
+      if (!isAllowed) {
+        // Chặn truy cập nếu không phải từ linkvertise/lootlab
+        document.body.innerHTML = `
+          <h1>❌ Truy cập không hợp lệ</h1>
+          <p>Bạn phải truy cập thông qua Linkvertise hoặc LootLab để vào trang này.</p>
+        `;
+      } else {
+        // Cho phép truy cập
+        document.body.innerHTML = `
+          <h1>✅ Truy cập hợp lệ</h1>
+          <p>Chào mừng bạn đã vượt qua liên kết!</p>
+        `;
+      }
+    });
+  </script>
+</head>
+<body>
+  <p>Đang kiểm tra nguồn truy cập...</p>
+</body>
+</html>
