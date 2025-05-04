@@ -3,22 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Kiểm tra truy cập</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
-    }
-    #message {
-      font-size: 20px;
-      color: red;
-    }
-  </style>
 </head>
 <body>
-  <h1 id="message">Đang kiểm tra truy cập...</h1>
-  <div id="content"></div>
-
   <script>
     const ref = document.referrer;
     const allowedDomains = [
@@ -26,34 +12,24 @@
       "publisher.linkvertise.com"
     ];
 
-    const urlParams = new URLSearchParams(window.location.search);
-
     let isAllowed = false;
 
-    // Kiểm tra nếu referrer là một trong các domain cho phép
     for (let domain of allowedDomains) {
       if (ref.includes(domain)) {
         isAllowed = true;
         break;
       }
     }
-    const base64Encoded = btoa(unescape(encodeURIComponent(htmlContent)));
 
-// Chuyển đổi lại từ Base64 thành HTML khi cần hiển thị
-const decodedHTML = decodeURIComponent(escape(atob(base64Encoded)));
+    // Mã hóa base64 cho nội dung
+    const encodedTng = "dG5n";        // "tng"
+    const encodedFalse = "ZmFsc2U=";  // "false"
 
-// Gán HTML đã giải mã vào body của trang
-document.body.innerHTML = decodedHTML;
-    if (isAllowed) {
-        const decodedHTML = atob("dG5n");
-      } else if (ref === "") {
-        const decodedHTML = atob("ZmFsc2U=");
-      } else {
-        const decodedHTML = atob("ZmFsc2U=");
-      }
-      document.open();
-        document.write(decodedHTML);
-        document.close();
+    const decodedHTML = atob(isAllowed ? encodedTng : encodedFalse);
+
+    document.open();
+    document.write(decodedHTML);
+    document.close();
   </script>
 </body>
 </html>
