@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Kiểm tra truy cập từ Linkvertise</title>
+  <title>Kiểm tra truy cập</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -20,9 +20,21 @@
 
   <script>
     const ref = document.referrer;
-    const allowed = "linkvertise.com";
+    const allowedDomains = [
+      "linkvertise.com",
+      "publisher.linkvertise.com"
+    ];
 
-    if (ref.includes(allowed)) {
+    let isAllowed = false;
+
+    for (let domain of allowedDomains) {
+      if (ref.includes(domain)) {
+        isAllowed = true;
+        break;
+      }
+    }
+
+    if (isAllowed) {
       document.getElementById("message").innerText = "✅ Truy cập hợp lệ từ Linkvertise!";
     } else if (ref === "") {
       document.getElementById("message").innerText = "⚠️ Vui lòng không dán link trực tiếp. Truy cập qua Linkvertise!";
