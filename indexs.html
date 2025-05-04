@@ -28,7 +28,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       const referrer = document.referrer;
       console.log("Referrer:", referrer);
-      const allowedReferrers = ["linkvertise.com"];
+      const allowedReferrers = ["https://linkvertise.com/"];
       const isAllowed = allowedReferrers.some(domain => referrer.includes(domain));
 
       if (!isAllowed) {
