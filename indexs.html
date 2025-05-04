@@ -17,6 +17,7 @@
 </head>
 <body>
   <h1 id="message">Đang kiểm tra truy cập...</h1>
+  <div id="content"></div>
 
   <script>
     const ref = document.referrer;
@@ -25,21 +26,36 @@
       "publisher.linkvertise.com"
     ];
 
-    let isAllowed = false;
+    const urlParams = new URLSearchParams(window.location.search);
+    const isRaw = urlParams.has('raw'); // Kiểm tra xem URL có chứa ?raw hay không
 
+    let isAllowed = false;
+    let isValidAccess = false; // Mặc định là false
+
+    // Kiểm tra nếu referrer là một trong các domain cho phép
     for (let domain of allowedDomains) {
       if (ref.includes(domain)) {
         isAllowed = true;
         break;
       }
     }
-
+    text = "false"
     if (isAllowed) {
-      document.getElementById("message").innerText = "✅ Truy cập hợp lệ từ Linkvertise!";
-    } else if (ref === "") {
-      document.getElementById("message").innerText = "⚠️ Vui lòng không dán link trực tiếp. Truy cập qua Linkvertise!";
+      isValidAccess = true;
+      text = "true"
+    }
+
+    if (isRaw) {
+      // Nếu có ?raw, hiển thị "true"
+      document.body.innerHTML = text;
     } else {
-      document.getElementById("message").innerText = "⛔ Truy cập bị từ chối! Hãy vào từ linkvertise.com.";
+      if (isValidAccess) {
+        document.getElementById("message").innerText = "✅ Truy cập hợp lệ từ Linkvertise!";
+      } else if (ref === "") {
+        document.getElementById("message").innerText = "⚠️ Vui lòng không dán link trực tiếp. Truy cập qua Linkvertise!";
+      } else {
+        document.getElementById("message").innerText = "⛔ Truy cập bị từ chối! Hãy vào từ linkvertise.com.";
+      }
     }
   </script>
 </body>
