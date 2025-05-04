@@ -27,7 +27,6 @@
     ];
 
     const urlParams = new URLSearchParams(window.location.search);
-    const isRaw = urlParams.has('raw'); // Kiểm tra xem URL có chứa ?raw hay không
 
     let isAllowed = false;
     let isValidAccess = false; // Mặc định là false
@@ -42,21 +41,16 @@
     text = "false"
     if (isAllowed) {
       isValidAccess = true;
-      text = "true"
+      text = "Succes!"
     }
 
-    if (isRaw) {
-      // Nếu có ?raw, hiển thị "true"
-      document.body.innerHTML = text;
-    } else {
-      if (isValidAccess) {
-        document.getElementById("message").innerText = "✅ Truy cập hợp lệ từ Linkvertise!";
+    if (isValidAccess) {
+        document.body.innerHTML = text;
       } else if (ref === "") {
-        document.getElementById("message").innerText = "⚠️ Vui lòng không dán link trực tiếp. Truy cập qua Linkvertise!";
+        document.body.innerHTML = "faslefasle";
       } else {
-        document.getElementById("message").innerText = "⛔ Truy cập bị từ chối! Hãy vào từ linkvertise.com.";
+        document.body.innerHTML = "fasle";
       }
-    }
   </script>
 </body>
 </html>
