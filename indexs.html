@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Kiểm tra truy cập</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+  </style>
 </head>
 <body>
+  <h1 id="message">Đang kiểm tra truy cập...</h1>
+  <div id="content"></div>
+
   <script>
-    const ref = document.referrer;
+    const ref = document.referrer; // Lấy referrer của trang
     const allowedDomains = [
       "linkvertise.com",
       "publisher.linkvertise.com"
@@ -14,6 +24,7 @@
 
     let isAllowed = false;
 
+    // Kiểm tra nếu referrer là một trong các domain cho phép
     for (let domain of allowedDomains) {
       if (ref.includes(domain)) {
         isAllowed = true;
@@ -21,15 +32,12 @@
       }
     }
 
-    // Mã hóa base64 cho nội dung
-    const encodedTng = "dG5n";        // "tng"
-    const encodedFalse = "ZmFsc2U=";  // "false"
-
-    const decodedHTML = atob(isAllowed ? encodedTng : encodedFalse);
-
-    document.open();
-    document.write(decodedHTML);
-    document.close();
+    // Chỉ trả về true hoặc false
+    if (isAllowed) {
+      document.body.innerHTML = "true";  // Nếu referrer hợp lệ
+    } else {
+      document.body.innerHTML = "false";  // Nếu không hợp lệ
+    }
   </script>
 </body>
 </html>
