@@ -3,14 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Kiểm tra truy cập</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    #message {
+      font-size: 20px;
+      color: red;
+    }
+  </style>
 </head>
 <body>
+  <h1 id="message">Đang kiểm tra truy cập...</h1>
+  <div id="content"></div>
+
   <script>
     const ref = document.referrer;
     const allowedDomains = [
       "linkvertise.com",
       "publisher.linkvertise.com"
     ];
+
+    const urlParams = new URLSearchParams(window.location.search);
 
     let isAllowed = false;
 
@@ -21,13 +37,19 @@
         break;
       }
     }
-
-    // Trả về true hoặc false dưới dạng văn bản thuần túy
     if (isAllowed) {
-      document.write("true");
-    } else {
-      document.write("false");
-    }
+        document.body.innerHTML = `
+        <pre>tng</pre>
+      `;
+      } else if (ref === "") {
+        document.body.innerHTML = `
+         <pre>false</pre>
+      `;
+      } else {
+        document.body.innerHTML = `
+         <pre>false</pre>
+      `;
+      }
   </script>
 </body>
 </html>
