@@ -3,20 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Kiểm tra truy cập</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
-    }
-  </style>
 </head>
 <body>
-  <h1 id="message">Đang kiểm tra truy cập...</h1>
-  <div id="content"></div>
-
   <script>
-    const ref = document.referrer; // Lấy referrer của trang
+    const ref = document.referrer;
     const allowedDomains = [
       "linkvertise.com",
       "publisher.linkvertise.com"
@@ -32,11 +22,11 @@
       }
     }
 
-    // Chỉ trả về true hoặc false
+    // Trả về true hoặc false dưới dạng văn bản thuần túy
     if (isAllowed) {
-      document.body.innerHTML = "true";  // Nếu referrer hợp lệ
+      document.write("true");
     } else {
-      document.body.innerHTML = "false";  // Nếu không hợp lệ
+      document.write("false");
     }
   </script>
 </body>
