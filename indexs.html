@@ -45,11 +45,20 @@
     }
 
     if (isValidAccess) {
-        document.body.innerHTML = text;
+        document.body.innerHTML = `
+        <pre style="word-wrap: break-word; white-space: pre-wrap;">
+tng</pre> == ${text}
+      `;
       } else if (ref === "") {
-        document.body.innerHTML = "faslefasle";
+        document.body.innerHTML = `
+        <pre style="word-wrap: break-word; white-space: pre-wrap;">
+tng</pre> == faslefasle
+      `;
       } else {
-        document.body.innerHTML = "fasle";
+        document.body.innerHTML = `
+        <pre style="word-wrap: break-word; white-space: pre-wrap;">
+tng</pre> == fasle
+      `;
       }
   </script>
 </body>
