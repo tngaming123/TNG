@@ -29,7 +29,6 @@
     const urlParams = new URLSearchParams(window.location.search);
 
     let isAllowed = false;
-    let isValidAccess = false; // Mặc định là false
 
     // Kiểm tra nếu referrer là một trong các domain cho phép
     for (let domain of allowedDomains) {
@@ -38,26 +37,21 @@
         break;
       }
     }
-    text = "false"
-    if (isAllowed) {
-      isValidAccess = true;
-      text = "Succes!"
-    }
 
-    if (isValidAccess) {
+    if (isAllowed) {
         document.body.innerHTML = `
         <pre style="word-wrap: break-word; white-space: pre-wrap;">
-tng</pre> == ${text}
+tng</pre>
       `;
       } else if (ref === "") {
         document.body.innerHTML = `
         <pre style="word-wrap: break-word; white-space: pre-wrap;">
-tng</pre> == faslefasle
+falsefalse</pre>
       `;
       } else {
         document.body.innerHTML = `
         <pre style="word-wrap: break-word; white-space: pre-wrap;">
-tng</pre> == fasle
+fasle</pre>
       `;
       }
   </script>
