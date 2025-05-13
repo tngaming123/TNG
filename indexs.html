@@ -12,10 +12,10 @@
         function notifyApp() {
             fetch("http://localhost:5000/done/")
                 .then(response => {
-                    alert("🟢 Đã gửi tín hiệu thành công!");
+                    window.close(); 
                 })
                 .catch(error => {
-                    alert("🔴 Lỗi khi gửi tín hiệu: " + error);
+                    window.close(); 
                 });
         }
     </script>
