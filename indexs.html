@@ -1,55 +1,23 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Kiểm tra truy cập</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
-    }
-    #message {
-      font-size: 20px;
-      color: red;
-    }
-  </style>
+    <title>Verify Key</title>
 </head>
-<body>
-  <h1 id="message">Đang kiểm tra truy cập...</h1>
-  <div id="content"></div>
+<body style="font-family:sans-serif; text-align:center; margin-top:50px;">
+    <h1>🎉 Xác minh hoàn tất</h1>
+    <p>Bấm nút dưới đây để gửi tín hiệu về ứng dụng C#</p>
+    <button onclick="notifyApp()">Gửi tín hiệu</button>
 
-  <script>
-    const ref = document.referrer;
-    const allowedDomains = [
-      "linkvertise.com",
-      "publisher.linkvertise.com"
-    ];
-
-    const urlParams = new URLSearchParams(window.location.search);
-
-    let isAllowed = false;
-
-    // Kiểm tra nếu referrer là một trong các domain cho phép
-    for (let domain of allowedDomains) {
-      if (ref.includes(domain)) {
-        isAllowed = true;
-        break;
-      }
-    }
-    if (isAllowed) {
-        document.body.innerHTML = `
-        <pre>tng</pre>
-      `;
-      } else if (ref === "") {
-        document.body.innerHTML = `
-         <pre>false</pre>
-      `;
-      } else {
-        document.body.innerHTML = `
-         <pre>false</pre>
-      `;
-      }
-  </script>
+    <script>
+        function notifyApp() {
+            fetch("http://localhost:5000/done/")
+                .then(response => {
+                    alert("🟢 Đã gửi tín hiệu thành công!");
+                })
+                .catch(error => {
+                    alert("🔴 Lỗi khi gửi tín hiệu: " + error);
+                });
+        }
+    </script>
 </body>
 </html>
