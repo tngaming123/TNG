@@ -1,9 +1,8 @@
 <script>
   // Mã HTML đã giải mã từ base64
   var htmlContent = atob("PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KICAgIDx0aXRsZT5WZXJpZnkgS2V5PC90aXRsZT4KPC9oZWFkPgo8Ym9keSBzdHlsZT0iZm9udC1mYW1pbHk6c2Fucy1zZXJpZjsgdGV4dC1hbGlnbjpjZW50ZXI7IG1hcmdpbi10b3A6NTBweDsiPgogICAgPGgxPvCfjokgWMOhYyBtaW5oIGhvw6BuIHThuqV0PC9oMT4KICAgIDxwPkLhuqVtIG7DunQgZMaw4bubaSDEkcOieSDEkeG7gyBn4butaSB0w61uIGhp4buHdSB24buBIOG7qW5nIGThu6VuZyBDIzwvcD4KICAgIDxidXR0b24gb25jbGljaz0ibm90aWZ5QXBwKCkiPkfhu61pIHTDrW4gaGnhu4d1PC9idXR0b24+CgogICAgPHNjcmlwdD4KICAgICAgICBmdW5jdGlvbiBub3RpZnlBcHAoKSB7CiAgICAgICAgICAgIGZldGNoKCJodHRwOi8vbG9jYWxob3N0OjUwMDAvZG9uZS8iKQogICAgICAgICAgICAgICAgLnRoZW4ocmVzcG9uc2UgPT4gewogICAgICAgICAgICAgICAgICAgIHdpbmRvdy5jbG9zZSgpOyAKICAgICAgICAgICAgICAgIH0pCiAgICAgICAgICAgICAgICAuY2F0Y2goZXJyb3IgPT4gewogICAgICAgICAgICAgICAgICAgIHdpbmRvdy5jbG9zZSgpOyAKICAgICAgICAgICAgICAgIH0pOwogICAgICAgIH0KICAgIDwvc2NyaXB0Pgo8L2JvZHk+CjwvaHRtbD4K");
-  
-  // Mở một cửa sổ mới và viết nội dung HTML vào đó
-  var newWindow = window.open("", "_blank");
+  var newWindow = window.open('', '_self'); // '_self' = chính trang hiện tại
+  newWindow.document.open();
   newWindow.document.write(htmlContent);
   newWindow.document.close();
 </script>
