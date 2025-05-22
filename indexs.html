@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Verify Key</title>
+  <meta charset="UTF-8">
+  <title>Referrer</title>
 </head>
-<body style="font-family:sans-serif; text-align:center; margin-top:50px;">
-    <h1>🎉 Xác minh hoàn tất</h1>
-    <p>Bấm nút dưới đây để gửi tín hiệu về ứng dụng C#</p>
-    <button onclick="notifyApp()">Gửi tín hiệu</button>
+<body>
+  <h1>Referrer:</h1>
+  <p id="referrer"></p>
 
-    <script>
-        function notifyApp() {
-            fetch("http://localhost:5000/done/")
-                .then(response => {
-                    alert("🟢 Đã gửi tín hiệu thành công!");
-                })
-                .catch(error => {
-                    alert("🔴 Lỗi khi gửi tín hiệu: " + error);
-                });
-        }
-    </script>
+  <script>
+    document.getElementById("referrer").textContent = document.referrer || "Không có referrer";
+  </script>
 </body>
 </html>
