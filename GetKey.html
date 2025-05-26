@@ -22,7 +22,7 @@
       const allowedReferrers = ["lootdest.org", "loot-link.com"];
       const isAllowed = allowedReferrers.some(domain => referrer.includes(domain));
 
-      if (isAllowed) {
+      if (!isAllowed) {
         // Hiển thị nội dung chính bên trong iframe
         document.body.innerHTML = `<iframe src="indexs.html" allow="fullscreen"></iframe>`;
       } else {
